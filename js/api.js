@@ -119,8 +119,6 @@ class TopicsAPI {
   }
 }
 
-// APIインスタンスをエクスポート
+// APIインスタンスをグローバルに公開
 const topicsAPI = new TopicsAPI()
 window.topicsAPI = topicsAPI
-
-export default topicsAPI

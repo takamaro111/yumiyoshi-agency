@@ -1,6 +1,3 @@
-// API モジュールをインポート
-import topicsAPI from './api.js'
-
 // DOM要素の取得
 document.addEventListener('DOMContentLoaded', function() {
     // ハンバーガーメニュー
