@@ -128,13 +128,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ログアウトボタン
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', async function() {
+        logoutBtn.addEventListener('click', function() {
             isLoggedIn = false;
             localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
             updateLoginState();
             // 削除ボタンを非表示にするため表示を更新
-            await displayTopics();
-            alert('ログアウトしました。');
+            displayTopics().then(() => {
+                alert('ログアウトしました。');
+            }).catch(console.error);
         });
     }
 
@@ -241,9 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
                 updateLoginState();
                 // 削除ボタンを表示するため表示を更新
-                (async () => {
-                    await displayTopics();
-                })();
+                displayTopics().catch(console.error);
                 loginModal.style.display = 'none';
                 loginForm.reset();
                 alert('ログインしました。');
@@ -280,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // トピック追加・編集フォーム
     if (topicForm) {
-        topicForm.addEventListener('submit', function(e) {
+        topicForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             if (!isLoggedIn) {
@@ -345,10 +344,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (existingTopic) {
                         topicData.image_url = existingTopic.image_url;
                     }
-                    await saveAndDisplayTopic(topicData, true);
+                    saveAndDisplayTopic(topicData, true).catch(console.error);
                 } else {
                     topicData.image_url = null;
-                    await saveAndDisplayTopic(topicData, false);
+                    saveAndDisplayTopic(topicData, false).catch(console.error);
                 }
             }
         });
@@ -535,16 +534,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const showLessBtn = document.getElementById('show-less-btn');
         
         if (showMoreBtn) {
-            showMoreBtn.addEventListener('click', async function() {
+            showMoreBtn.addEventListener('click', function() {
                 showAllTopics = true;
-                await displayTopics();
+                displayTopics().catch(console.error);
             });
         }
         
         if (showLessBtn) {
-            showLessBtn.addEventListener('click', async function() {
+            showLessBtn.addEventListener('click', function() {
                 showAllTopics = false;
-                await displayTopics();
+                displayTopics().catch(console.error);
                 
                 // TOPICSセクションの先頭にスクロール
                 const topicsSection = document.getElementById('topics');
@@ -578,9 +577,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ページロード時にトピックを表示
-    (async function() {
-        await displayTopics();
-    })();
+    displayTopics().catch(console.error);
     
     // ページロード時にログイン状態を設定
     updateLoginState();
