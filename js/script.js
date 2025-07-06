@@ -128,12 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ログアウトボタン
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', function() {
+        logoutBtn.addEventListener('click', async function() {
             isLoggedIn = false;
             localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
             updateLoginState();
             // 削除ボタンを非表示にするため表示を更新
-            displayTopics();
+            await displayTopics();
             alert('ログアウトしました。');
         });
     }
@@ -241,7 +241,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
                 updateLoginState();
                 // 削除ボタンを表示するため表示を更新
-                displayTopics();
+                (async () => {
+                    await displayTopics();
+                })();
                 loginModal.style.display = 'none';
                 loginForm.reset();
                 alert('ログインしました。');
@@ -533,16 +535,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const showLessBtn = document.getElementById('show-less-btn');
         
         if (showMoreBtn) {
-            showMoreBtn.addEventListener('click', function() {
+            showMoreBtn.addEventListener('click', async function() {
                 showAllTopics = true;
-                displayTopics();
+                await displayTopics();
             });
         }
         
         if (showLessBtn) {
-            showLessBtn.addEventListener('click', function() {
+            showLessBtn.addEventListener('click', async function() {
                 showAllTopics = false;
-                displayTopics();
+                await displayTopics();
                 
                 // TOPICSセクションの先頭にスクロール
                 const topicsSection = document.getElementById('topics');
