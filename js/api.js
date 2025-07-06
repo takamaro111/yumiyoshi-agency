@@ -120,4 +120,7 @@ class TopicsAPI {
 }
 
 // APIインスタンスをエクスポート
-window.topicsAPI = new TopicsAPI()
+const topicsAPI = new TopicsAPI()
+window.topicsAPI = topicsAPI
+
+export default topicsAPI
