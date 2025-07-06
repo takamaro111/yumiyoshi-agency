@@ -344,10 +344,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (existingTopic) {
                         topicData.image_url = existingTopic.image_url;
                     }
-                    saveAndDisplayTopic(topicData, true).catch(console.error);
+                    await saveAndDisplayTopic(topicData, true);
                 } else {
                     topicData.image_url = null;
-                    saveAndDisplayTopic(topicData, false).catch(console.error);
+                    await saveAndDisplayTopic(topicData, false);
                 }
             }
         });
@@ -410,10 +410,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (!topicsContent) return;
 
-        // ローディング状態を表示
-        if (isLoading) {
-            showLoading(topicsContent);
-            return;
+        // 既存のローディングメッセージを削除
+        const loadingMessage = topicsContent.querySelector('.loading-message');
+        if (loadingMessage) {
+            loadingMessage.remove();
+        }
+        
+        // 既存のエラーメッセージを削除
+        const errorMessage = topicsContent.querySelector('.error-message');
+        if (errorMessage) {
+            errorMessage.remove();
         }
 
         try {
