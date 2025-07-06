@@ -1,8 +1,5 @@
-console.log('Script.js loaded');
-
 // DOM要素の取得
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded event fired');
     
     // ハンバーガーメニュー
     const hamburger = document.querySelector('.hamburger');
@@ -108,11 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let showAllTopics = false;
     const maxVisibleTopics = 3;
 
-    // デバッグ: 要素の存在確認
-    console.log('Login button:', loginBtn);
-    console.log('Login modal:', loginModal);
-    console.log('All buttons loaded');
-    
     // ログイン状態の初期設定
     function updateLoginState() {
         if (isLoggedIn) {
@@ -128,19 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ログインボタン
     if (loginBtn) {
-        console.log('Adding click event to login button');
         loginBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('Login button clicked!');
-            if (loginModal) {
-                loginModal.style.display = 'block';
-                console.log('Modal display set to block');
-            } else {
-                console.error('Login modal not found!');
-            }
+            loginModal.style.display = 'block';
         });
-    } else {
-        console.error('Login button not found!');
     }
 
     // ログアウトボタン
@@ -593,7 +576,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ページロード時にトピックを表示
-    displayTopics();
+    (async function() {
+        await displayTopics();
+    })();
     
     // ページロード時にログイン状態を設定
     updateLoginState();
