@@ -1,0 +1,16 @@
+{
+  "name": "yumiyoshi-agency",
+  "version": "1.0.0",
+  "description": "弓義エージェンシー コーポレートサイト",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build process required'",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.15.0"
+  }
+}
