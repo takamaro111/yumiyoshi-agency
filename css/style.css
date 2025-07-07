@@ -578,6 +578,8 @@ body {
     line-height: 1.8;
     color: #666;
     font-weight: 300;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .add-topic-btn {
@@ -664,6 +666,8 @@ body {
 
 .topic-text p {
     margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .topic-actions {
