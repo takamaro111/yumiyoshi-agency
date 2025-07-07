@@ -667,9 +667,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
+    // セクションタイトルアニメーション用オブザーバー
+    const titleObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
     // 監視対象の要素を追加
     document.querySelectorAll('.work-item, .topic-item, .about-content, .philosophy-content, .recruit-content, .contact-content').forEach(el => {
         observer.observe(el);
+    });
+    
+    // セクションタイトルを監視
+    document.querySelectorAll('.section-title').forEach(title => {
+        titleObserver.observe(title);
     });
 
     // キーボードナビゲーション
