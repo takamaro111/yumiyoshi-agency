@@ -343,6 +343,121 @@ body {
     clear: both;
 }
 
+/* Company History Timeline */
+.company-history {
+    margin-top: 60px;
+}
+
+.company-history h4 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom, #e74c3c, #333);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    background: #e74c3c;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.timeline-date {
+    min-width: 120px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e74c3c;
+    margin-right: 20px;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Company Details */
+.company-details {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.detail-section {
+    margin-bottom: 30px;
+}
+
+.detail-section h5 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.detail-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-section ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.detail-section ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #e74c3c;
+    font-size: 10px;
+}
+
 /* Works Section */
 .works-section {
     background: #fff;
@@ -1073,6 +1188,31 @@ body {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+    
+    /* タイムライン・レスポンシブ */
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-date {
+        min-width: auto;
+        margin-bottom: 8px;
+        margin-right: 0;
+        font-size: 13px;
+    }
+    
+    .company-history h4 {
+        font-size: 20px;
+    }
+    
+    .detail-section h5 {
+        font-size: 16px;
     }
 }
 
