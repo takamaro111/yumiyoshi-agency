@@ -688,6 +688,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.section-title').forEach(title => {
         titleObserver.observe(title);
     });
+    
+    // ヒーローテキストを監視
+    document.querySelectorAll('.hero-content h2, .hero-content h3').forEach(heroText => {
+        titleObserver.observe(heroText);
+    });
 
     // キーボードナビゲーション
     document.addEventListener('keydown', function(e) {
