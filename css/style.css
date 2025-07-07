@@ -152,6 +152,22 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 6s ease-in-out infinite;
+    padding: 15px 25px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-content h2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    z-index: -1;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content h2::before {
@@ -193,6 +209,22 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientShift 8s ease-in-out infinite;
+    padding: 12px 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-content h3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    z-index: -1;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content h3::before {
@@ -1250,10 +1282,12 @@ body {
     
     .hero-content h2 {
         font-size: 32px;
+        padding: 10px 16px;
     }
     
     .hero-content h3 {
         font-size: 20px;
+        padding: 8px 12px;
     }
     
     .hero-content p {
@@ -1341,10 +1375,12 @@ body {
     
     .hero-content h2 {
         font-size: 28px;
+        padding: 8px 12px;
     }
     
     .hero-content h3 {
         font-size: 18px;
+        padding: 6px 10px;
     }
     
     .section-title {
