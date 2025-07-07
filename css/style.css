@@ -357,57 +357,62 @@ body {
 }
 
 .timeline {
-    position: relative;
+    border-left: 3px solid #e74c3c;
     padding-left: 30px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 11px;
-    top: 14px;
-    bottom: 14px;
-    width: 2px;
-    background: linear-gradient(to bottom, #e74c3c, #333);
+    margin-left: 20px;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: flex-start;
+    margin-bottom: 40px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-left: -15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -19px;
-    top: 8px;
-    width: 12px;
-    height: 12px;
+    left: -11px;
+    top: 25px;
+    width: 16px;
+    height: 16px;
     background: #e74c3c;
+    border: 3px solid #fff;
     border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
-    z-index: 1;
+    box-shadow: 0 0 0 3px #e74c3c;
 }
 
 .timeline-date {
-    min-width: 120px;
-    font-size: 14px;
+    display: inline-block;
+    background: #e74c3c;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 500;
-    color: #e74c3c;
-    margin-right: 20px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
 }
 
 .timeline-content {
-    flex: 1;
+    margin-top: 5px;
 }
 
 .timeline-content p {
     margin: 0;
     font-size: 15px;
-    line-height: 1.6;
-    color: #666;
+    line-height: 1.7;
+    color: #555;
+    font-weight: 400;
 }
 
 /* Company Details */
@@ -1193,19 +1198,19 @@ body {
     
     /* タイムライン・レスポンシブ */
     .timeline {
+        margin-left: 10px;
         padding-left: 20px;
     }
     
     .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
+        margin-left: -10px;
+        padding: 15px;
     }
     
-    .timeline-date {
-        min-width: auto;
-        margin-bottom: 8px;
-        margin-right: 0;
-        font-size: 13px;
+    .timeline-item::before {
+        left: -8px;
+        width: 12px;
+        height: 12px;
     }
     
     .company-history h4 {
